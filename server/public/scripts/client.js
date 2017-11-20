@@ -3,6 +3,7 @@ $(document).ready(onReady);
 function onReady() {
     //event listener
     $('.operButton').on('click', function() {
+        getMath();
         // get values of fof inputs and the button
         var firstValue = $('#firstNumber').val();
         var secondValue = $('#secondNumber').val();
@@ -47,7 +48,10 @@ function getMath() {
         url: '/math',
         success: function(response) {
             $('#result').text(response.result);
-            $('#history').append('<p>' + response.history.first + '' + response.history.oper + '' + response.history.second + '=' + response.result + '</p>');
+            $('#history').html('');
+            for (var i = 0; i < response.history.length; i++) {
+                $('#history').append('<p>' + response.history[i].first + '' + response.history[i].oper + '' + response.history[i].second + '=' + response.history[i].result + '</p>');
+            } 
         },
         error: function(error) {
             console.log(' error in GET', error);

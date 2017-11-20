@@ -5,6 +5,8 @@ var mathResult = 0;
 
 var mathOper;
 
+var historyArray = [];
+
 var mathHistory = {};
 
 router.post('/', function(req, res) {
@@ -36,15 +38,18 @@ router.post('/', function(req, res) {
     mathHistory = {
         first: firstNum,
         second: secondNum,
-        oper: mathOper
+        oper: mathOper,
+        result: mathResult
     };
+
+    historyArray.push(mathHistory);
 
     res.sendStatus(200);
 
 });
 
 router.get('/', function(req, res) {
-    res.send({result: mathResult, history: mathHistory});
+    res.send({result: mathResult, history: historyArray});
 });
 
 module.exports = router;
