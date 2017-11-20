@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/jquery-3.2.1.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div>
+        <input type="number" id="firstNumber">
+        <input type="number" id="secondNumber">
+        <button class="operButton" data-oper="add">Add</button>
+        <button class="operButton" data-oper="subtract">Subtract</button>
+        <button class="operButton" data-oper="multiply">Multiply</button>
+        <button class="operButton" data-oper="divide">Divide</button>
+        <br>
+        <button id="clearButton">Clear</button>
+    </div>
+    <div>
+        <p>The result is: <span id="result">0</span></p>
+    </div>
+    <div id="history">
+        <p>History: </p>
+    </div>
+
+</body>
+</html>
